@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-session": "^1.19.0"
+  },
+  "name": "arividade-4---disciplina-ppi",
+  "version": "1.0.0",
+  "description": "Atividade 4 de Programação para Internet Integrando FrontEnd com BackEnd",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SullyvanOgawa/Arividade-4---disciplina-PPI.git"
+  },
+  "author": "Sullyvan C N A Ogawa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SullyvanOgawa/Arividade-4---disciplina-PPI/issues"
+  },
+  "homepage": "https://github.com/SullyvanOgawa/Arividade-4---disciplina-PPI#readme"
+}
