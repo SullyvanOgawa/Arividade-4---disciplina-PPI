@@ -4,11 +4,11 @@ import session from 'express-session';
 
 
 const host = '0.0.0.0';
-const port = 5000; 
+const port = 4000; 
 const app = express();
 
 app.use(session({
-    secret: 123, 
+    secret: '123456', 
     resave: false, 
     saveUninitialized: true, 
     cookie: {
@@ -40,7 +40,7 @@ app.get("/login", (requisicao, resposta) => {
     resposta.redirect('public/login.html');
 });
 
-app.get("/login", (requisicao, resposta) => {
+app.get("/logout", (requisicao, resposta) => {
     requisicao.session.destroy();
     resposta.redirect('/login.html');
 });

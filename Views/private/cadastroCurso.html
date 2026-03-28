@@ -16,31 +16,40 @@
 
                 <form>
                     <div class="mb-3">
-                        <label class="form-label">Nome do Curso</label>
-                        <input type="text" class="form-control">
+                        <label for="nomeCurso" class="form-label">Nome do Curso</label>
+                        <input type="text" class="form-control" id="nomeCurso" name="nomeCurso" value="" required>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Descrição</label>
-                        <input type="number" class="form-control">
+                        <label for="descricao" class="form-label">Descrição</label>
+                        <input type="text" class="form-control" id="descricao" name="descricao" value="" required>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Carga Horária</label>
-                        <input type="number" class="form-control">
+                        <label for="cargaHoraria" class="form-label">Carga Horária</label>
+                        <input type="number" class="form-control" id="cargaHoraria" name="cargaHoraria">
                     </div>
 
-                    <div class="mb-3">
-                        <label class="form-label">Professor</label>
-                        <input type="number" class="form-control">
+                    <div class="col-md-12 mb-5">
+                        <label for="professor" class="form-label">Professor</label>
+                        <select class="form-select" name="professor" id="professor" required>
+                            <option selected disabled value="">Escolha o Professor</option>
+                        </select>
+                        
                     </div>
 
-                    <button class="btn btn-primary w-100">Salvar Curso</button>
+                    <div class="row mt-5 mb-4 text-center">
+                        <div class="col-12">
+                            <button class="btn btn-primary me-2" id='cadastrar' type="button">Cadastrar</button>
+                            <button class="btn btn-warning me-2" id='atualizar' type="button" >Atualizar</button>
+                            <button class="btn btn-danger me-2" id='excluir' type="button" >Excluir</button>
+                            <button class="btn btn-secondary me-2" type="button" onclick="history.back()">Voltar</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
 
     </div>
-
 </body>
 </html>
