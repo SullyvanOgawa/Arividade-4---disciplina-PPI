@@ -92,7 +92,7 @@ function buscarCursos(){
         mostrarMensagem("danger", "Erro ao obter lista de cidade!" + erro);
     });
         
-               
+}         
 
 function mostrarMensagem(tipo ="sucess", mensagem = "Mensagem Padrão") {
     const divMensagem = document.getElementById("mensagem");
