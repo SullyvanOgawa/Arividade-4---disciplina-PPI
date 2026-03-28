@@ -3,9 +3,13 @@ import autenticador from './Security/autenticator.js';
 import session from 'express-session';
 
 
+
+
 const host = '0.0.0.0';
 const port = 4000; 
 const app = express();
+
+
 
 app.use(session({
     secret: '123456', 
