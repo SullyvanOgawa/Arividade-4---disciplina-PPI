@@ -51,7 +51,7 @@ function buscarCursos(){
                 const exibeCurso = document.getElementById("exibeCurso");
                 exibeCurso.innerHTML = "";
                 const tabela = document.createElement("table");
-                tabela.className = "table table-striped";
+                tabela.className = "table table-striped table hover table-bordered";
 
                 const cabecalhoTabela = document.createElement("thead");
                 cabecalhoTabela.innerHTML = `
@@ -76,8 +76,8 @@ function buscarCursos(){
                             <td><button class="btn btn-warning" onclick="selecionarCurso(${curso.id}, 
                                                                                         '${curso.nome}', 
                                                                                         '${curso.descricao}', 
-                                                                                        ${curso.cargaHoraria}, 
-                                                                                        ${curso.professor.id})">Selecionar</button></td>
+                                                                                        '${curso.cargaHoraria}', 
+                                                                                        '${curso.professor.id}')">Selecionar</button></td>
 
                         `;
                         
@@ -139,6 +139,50 @@ function cadastrarCurso(){
         formCurso.classList.add("was-validated");
     }
 }
+
+function atualizarCurso(){
+    
+     if(formCurso.checkValidity()){
+            const curso = {
+            id: document.getElementById("id").value,
+            nome: document.getElementById("nomeCurso").value,
+            descricao: document.getElementById("descricao").value,
+            cargaHoraria: Number(document.getElementById("cargaHoraria").value),
+            professor:{
+                id: document.getElementById("professor").value
+            }
+        }
+        fetch(urlBackend + "/cursos/" + curso.id, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(curso)
+        })
+        .then((resposta) => {
+            if(resposta.ok){
+                return resposta.json();
+            }
+        })
+        .then((conteudoJSON) => {
+            if(conteudoJSON.status){
+                mostrarMensagem("success", conteudoJSON.mensagem);
+                limparFormulario();
+                buscarCursos();
+            }
+            else{
+                mostrarMensagem("danger", conteudoJSON.mensagem)
+            }
+        })        
+        .catch((erro) => {
+            mostrarMensagem("danger", "Erro ao obter lista de Curso!" + erro);
+        });
+    }
+    else{
+        formCurso.classList.add("was-validated");
+    }
+
+}
     
 function excluirCurso(id){
     fetch(urlBackend + "/cursos/" + id, {
@@ -166,12 +210,12 @@ function excluirCurso(id){
     });
 }
 
-function selecionarCurso(id, nome, descricao, cargaHoraria, professor){
+function selecionarCurso(id, nome, descricao, cargaHoraria, prof_id){
     document.getElementById("id").value = id;
     document.getElementById("nomeCurso").value = nome;
     document.getElementById("descricao").value = descricao;
     document.getElementById("cargaHoraria").value = cargaHoraria;
-    document.getElementById("professor").value = professor;
+    document.getElementById("professor").value = prof_id;
 
     document.getElementById("cadastrar").disabled = true;
     document.getElementById("atualizar").disabled = false;
@@ -210,6 +254,9 @@ buscarCursos();
 
 const btnCadastrar = document.getElementById("cadastrar");
 btnCadastrar.onclick = cadastrarCurso;
+
+const btnAtualizar = document.getElementById("atualizar");
+btnAtualizar.onclick = atualizarCurso;
 
 const btnExcluir = document.getElementById("excluir");
 btnExcluir.onclick = function () {

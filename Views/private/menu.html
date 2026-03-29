@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,10 +9,10 @@
 </head>
 <body>
     <nav class="bg-dark p-3">
-        <ul class="nav justify-content-center gap-5">
+        <ul class="nav justify-content-center gap-5 bg-gradient">
     
             <li class="nav-item">
-                <a class="nav-link text-white fs-4" href="menu.html">Home</a>
+                <a class="nav-link text-white fs-4" href="menu.html">Dashboard</a>
             </li>
     
             <li class="nav-item dropdown">
@@ -36,6 +36,14 @@
     
             </li>
         </ul>
+
+        <h2 class ="text-center mb-4 mt-5">Cursos Disponíveis</h2>
+        <div id="exibirCursos"></div>
+
+        <h2 class ="text-center mb-4 mt-5">Professores</h2>
+        <div id="exibirProfessores"></div>        
     </nav>
+    <script src="scripts/dashboardCursos.js"></script>
+    <script src="scripts/dashboardProfs.js"></script>
 </body>
 </html>
