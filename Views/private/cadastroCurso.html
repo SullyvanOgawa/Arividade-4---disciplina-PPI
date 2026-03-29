@@ -14,7 +14,12 @@
             <div class="card p-4 shadow mb-4">
                 <h3 class="mb-3 text-center">Cadastro de Cursos</h3>
 
-                <form>
+                <form id="formCurso" method="POST" action="#" class="row g-3">
+                    <div class="col-md-2">
+                        <label for="id" class="form-label">Id</label>
+                        <input type="text" class="form-control" id="id" name="id" value="" readonly>
+                    </div>
+
                     <div class="mb-3">
                         <label for="nomeCurso" class="form-label">Nome do Curso</label>
                         <input type="text" class="form-control" id="nomeCurso" name="nomeCurso" value="" required>
@@ -41,7 +46,7 @@
                         <div class="col-12">
                             <button class="btn btn-primary me-2" id='cadastrar' type="button">Cadastrar</button>
                             <button class="btn btn-warning me-2" id='atualizar' type="button" >Atualizar</button>
-                            <button class="btn btn-danger me-2" id='excluir' type="button" >Excluir</button>
+                            <button class="btn btn-danger me-2" id='excluir' type="button" disabled>Excluir</button>
                             <button class="btn btn-secondary me-2" type="button" onclick="history.back()">Voltar</button>
                         </div>
                     </div>
@@ -50,6 +55,10 @@
         </div>
 
         <div id="exibeCurso">
+
+        </div>
+
+        <div id="mensagem">
 
         </div>
     </div>
