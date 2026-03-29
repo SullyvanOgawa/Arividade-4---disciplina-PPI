@@ -27,6 +27,7 @@ function buscarCursos(){
                         <th scope="col">Nome do Curso</th>
                         <th scope="col">Descrição</th>
                         <th scope="col">Carga Horária</th>
+                        <th scope="col">Professor</th>
                     </tr>`;
 
                     tabela.appendChild(cabecalhoTabela);
@@ -37,7 +38,8 @@ function buscarCursos(){
                             <td>${curso.id}</td>
                             <td>${curso.nome}</td>
                             <td>${curso.descricao}</td>
-                            <td>${curso.cargaHoraria}</td>`;
+                            <td>${curso.cargaHoraria}</td>
+                            <td>${curso.professor.nome}</td>`;
                         
                         corpoTabela.appendChild(linha);
                     }
